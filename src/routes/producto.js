@@ -8,8 +8,6 @@ const { Producto, Marca, Categoria } = require("../db");
 // const {API_KEY} = process.env;
 
 const router = Router();
-
-
 router.get("/marca", async (req, res) => {
   try {
     const { nombre } = req.query;
@@ -30,8 +28,6 @@ router.get("/marca", async (req, res) => {
     console.log(error)
   }
   });
-
-
 router.get("/", async (req, res) => {
 
   const {nombre,marca } = req.query
@@ -51,7 +47,6 @@ router.get("/", async (req, res) => {
   }
 
 })
-
 /* 
 // TRAER PRODUCTOS POR MARCA... DEBE FUNCIONAR BIEN.... VIDEO AZR MEDIA VIDEO#5
 router.get("/marca/:nombre", async (req, res) => {
@@ -88,7 +83,6 @@ router.get("/marca/:nombre", async (req, res) => {
 
 });
 */
-
 // TRAER PRODUCTOS POR CATEGORIA.
 router.get("/categoria", async (res, req) => {
   try {
@@ -112,9 +106,6 @@ router.get("/categoria", async (res, req) => {
     res.status(404).send(error)
   }
 });
-
-
-
 //Crear categoria
 router.post("/categoria/crear", async (req, res) => {
   try {
@@ -127,7 +118,6 @@ router.post("/categoria/crear", async (req, res) => {
     res.status(404).send(error);
   }
 });
-
 //* PUT  Corrección de categorías
 router.put("/categoria/:id", async (req, res) => {
   try {
@@ -144,9 +134,6 @@ router.put("/categoria/:id", async (req, res) => {
   }
 });
 //? POST crear PRODUCTO
-
-
-
 router.post("/admin/crear", async (req, res) => {
   const categoriasAux = await Categoria.findAll({
     include: [{ model: Producto }],
@@ -185,9 +172,7 @@ router.post("/admin/crear", async (req, res) => {
     res.status(400).send(error);
   }
 });
-
 //* PUT Producto
-
 router.put("/admin/:id", async (req, res) => {
   try {
     const id = req.params.id;
@@ -220,9 +205,6 @@ router.put("/admin/:id", async (req, res) => {
     res.status(400).send(error);
   }
 });
-
-
-
 //GET DETAILS :ID
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
@@ -239,10 +221,7 @@ router.get("/:id", async (req, res) => {
     res.status(404).json("No existe el producto seleccionado");
   }
 });
-
 module.exports = router
-
-
 // (productos.length > 0) {
   //       res.status(201).send(productos);
   //     } else {

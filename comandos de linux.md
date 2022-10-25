@@ -1,4 +1,14 @@
+## Back con deploy facilón
+
+La idea acá es sencilla, agregás otro remoto a tu git, tal que cuando se commitea y llega al server, git dispara un hook que se encarga de buildearlo e instanciarlo.  El comando para esto es el que sigue:
+
+```bash
+ git remote add prod ssh://root@31.220.49.30/root/autodeploy/deployBack-hook.git/
+ ```
+
+
 # Comandos importantes de linux:
+
 
 ## Los más basicos:
 ```bash
