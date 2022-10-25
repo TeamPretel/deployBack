@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const { Marca } = require("../db");
 // Y esto que??
-const router = Router();
+const router = Router(); 
 router.get("/", async (req, res) => {
   try {
     const { nombre } = req.query
